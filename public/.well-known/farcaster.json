@@ -1,0 +1,30 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+  },
+  "frame": {
+    "version": "1",
+    "name": "PortfolioAI",
+    "subtitle": "Built with Zara",
+    "description": "PortfolioAI is a Base Mini App built with Zara.",
+    "iconUrl": "https://0co.to/images/zara-2.png",
+    "homeUrl": "https://4785e8c6d32d48959a96f989a427ef07-f6jg.vercel.app",
+    "splashImageUrl": "https://4785e8c6d32d48959a96f989a427ef07-f6jg.vercel.app/splash.png",
+    "splashBackgroundColor": "#000000",
+    "heroImageUrl": "https://4785e8c6d32d48959a96f989a427ef07-f6jg.vercel.app/image.png",
+    "tagline": "PortfolioAI",
+    "screenshotUrls": [
+      "https://4785e8c6d32d48959a96f989a427ef07-f6jg.vercel.app/screenshot.png",
+      "https://4785e8c6d32d48959a96f989a427ef07-f6jg.vercel.app/screenshot.png"
+    ],
+    "primaryCategory": "social",
+    "tags": [
+      "base",
+      "miniapp",
+      "onchainkit"
+    ],
+    "webhookUrl": "https://4785e8c6d32d48959a96f989a427ef07-f6jg.vercel.app/api/webhook"
+  }
+}

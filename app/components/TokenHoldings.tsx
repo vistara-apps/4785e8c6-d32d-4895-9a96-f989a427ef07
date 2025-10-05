@@ -34,34 +34,34 @@ export function TokenHoldings() {
         {tokens.map((token) => (
           <div
             key={token.symbol}
-            className="glass-card-hover p-4 flex items-center justify-between cursor-pointer"
+            className="glass-card-hover p-3 sm:p-4 flex items-center justify-between cursor-pointer touch-manipulation min-h-[72px] active:scale-[0.98] transition-transform duration-150"
           >
-            <div className="flex items-center gap-4 flex-1">
-              <div className="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-2xl">
+            <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-surface flex items-center justify-center text-xl sm:text-2xl flex-shrink-0">
                 {token.icon}
               </div>
               
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1">
-                  <h4 className="font-semibold">{token.symbol}</h4>
-                  <span className={`grade-badge grade-${token.grade.toLowerCase()}`}>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1 flex-wrap">
+                  <h4 className="font-semibold text-sm sm:text-base">{token.symbol}</h4>
+                  <span className={`grade-badge grade-${token.grade.toLowerCase()} text-xs`}>
                     {token.grade}
                   </span>
                 </div>
-                <p className="text-sm text-muted">{token.name}</p>
+                <p className="text-xs sm:text-sm text-muted truncate">{token.name}</p>
               </div>
             </div>
             
-            <div className="text-right mr-4">
-              <p className="font-semibold">
+            <div className="text-right mr-2 sm:mr-4 flex-shrink-0">
+              <p className="font-semibold text-sm sm:text-base">
                 ${token.value.toLocaleString()}
               </p>
-              <p className={`text-sm ${token.change24h >= 0 ? 'text-success' : 'text-danger'}`}>
+              <p className={`text-xs sm:text-sm ${token.change24h >= 0 ? 'text-success' : 'text-danger'}`}>
                 {token.change24h >= 0 ? '+' : ''}{token.change24h}%
               </p>
             </div>
             
-            <ChevronRight className="w-5 h-5 text-muted" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-muted flex-shrink-0" />
           </div>
         ))}
       </div>

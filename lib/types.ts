@@ -25,12 +25,26 @@ export interface TokenHolding {
   tokenSymbol: string;
   tokenName: string;
   amount: number;
+  purchasePriceUsd: number;
   currentPriceUsd: number;
   valueUsd: number;
   healthScore: number;
   grade: 'A' | 'B' | 'C' | 'D' | 'F';
   scoreReasons: string[];
   lastUpdatedAt: Date;
+}
+
+export interface UserToken {
+  id: string;
+  symbol: string;
+  name: string;
+  amount: number;
+  purchasePrice: number;
+  currentPrice?: number;
+  value?: number;
+  change24h?: number;
+  grade?: string;
+  icon?: string;
 }
 
 export interface Token {

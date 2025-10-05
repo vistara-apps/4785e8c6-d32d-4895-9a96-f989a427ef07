@@ -1,15 +1,36 @@
 'use client';
 
-import { Sparkles, RefreshCw, Share2, TrendingUp } from 'lucide-react';
+import { Sparkles, RefreshCw, Share2, TrendingUp, Plus } from 'lucide-react';
+
+interface QuickAction {
+  icon: any;
+  title: string;
+  description: string;
+  price: string;
+  color: string;
+  onClick?: () => void;
+}
 
 export function QuickActions() {
-  const actions = [
+  const actions: QuickAction[] = [
+    {
+      icon: Plus,
+      title: 'Add Token',
+      description: 'Add to your portfolio',
+      price: 'Free',
+      color: 'from-accent to-yellow-500',
+      onClick: () => {
+        // This will be handled by the parent component
+        const event = new CustomEvent('openAddTokenModal');
+        window.dispatchEvent(event);
+      },
+    },
     {
       icon: Sparkles,
       title: 'AI Deep Dive',
       description: 'Get detailed analysis',
       price: '0.0001 ETH',
-      color: 'from-accent to-yellow-500',
+      color: 'from-purple-500 to-pink-500',
     },
     {
       icon: RefreshCw,
@@ -25,13 +46,6 @@ export function QuickActions() {
       price: 'Free',
       color: 'from-green-500 to-teal-500',
     },
-    {
-      icon: Share2,
-      title: 'Share Grade',
-      description: 'Show your progress',
-      price: 'Free',
-      color: 'from-pink-500 to-rose-500',
-    },
   ];
   
   return (
@@ -45,6 +59,7 @@ export function QuickActions() {
           return (
             <button
               key={action.title}
+              onClick={action.onClick}
               className="glass-card-hover p-4 text-left group"
             >
               <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${action.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-200`}>

@@ -31,6 +31,9 @@ export interface TokenHolding {
   grade: 'A' | 'B' | 'C' | 'D' | 'F';
   scoreReasons: string[];
   lastUpdatedAt: Date;
+  purchasePriceUsd?: number; // Added for user-added tokens
+  purchaseDate?: Date; // Added for tracking when token was added
+  isUserAdded?: boolean; // Flag to distinguish user-added vs auto-detected tokens
 }
 
 export interface Token {
@@ -89,4 +92,11 @@ export interface Transaction {
   txHash: string;
   status: 'pending' | 'confirmed' | 'failed';
   createdAt: Date;
+}
+
+export interface AddTokenForm {
+  tokenName: string;
+  tokenSymbol: string;
+  amount: number;
+  purchasePriceUsd: number;
 }

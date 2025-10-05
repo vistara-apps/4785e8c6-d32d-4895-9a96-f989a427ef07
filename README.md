@@ -5,6 +5,7 @@ AI-powered crypto portfolio tracker and advisor built for Base Mini Apps.
 ## Features
 
 - **Smart Portfolio Dashboard**: Real-time portfolio tracking with AI health scores
+- **Add Custom Tokens**: Manually add cryptocurrency tokens to your portfolio with purchase price tracking
 - **Token Health Scoring**: A-F grades for each holding based on multi-factor analysis
 - **Daily Digest**: Personalized morning notifications with portfolio updates
 - **Trend Scanner**: AI identifies emerging opportunities aligned with your holdings

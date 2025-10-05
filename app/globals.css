@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Professional Finance Theme - Dark Navy + Gold */
+  --color-bg: #0a1628;
+  --color-fg: #e8edf4;
+  --color-accent: #ffd700;
+  --color-border: #1e3a5f;
+  --color-surface: #132337;
+  --color-muted: #6b8caf;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --color-success: #10b981;
+  --color-primary: #3b82f6;
+  
+  /* Grade Colors */
+  --grade-a: #10b981;
+  --grade-b: #3b82f6;
+  --grade-c: #f59e0b;
+  --grade-d: #f97316;
+  --grade-f: #ef4444;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-bg text-fg antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
+    min-height: 100vh;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-surface border border-border rounded-lg shadow-card;
+    background: rgba(19, 35, 55, 0.8);
+    backdrop-filter: blur(10px);
+  }
+  
+  .glass-card-hover {
+    @apply transition-all duration-200 hover:shadow-card-hover hover:border-accent;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-accent to-yellow-500 text-bg px-6 py-3 rounded-lg font-medium hover:from-yellow-500 hover:to-accent transition-all duration-200 shadow-lg hover:shadow-glow;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-accent text-accent px-6 py-3 rounded-lg font-medium hover:bg-accent hover:text-bg transition-all duration-200;
+  }
+  
+  .grade-badge {
+    @apply px-3 py-1 rounded-full text-sm font-bold;
+  }
+  
+  .grade-a {
+    @apply bg-green-500 bg-opacity-20 text-green-400 border border-green-500;
+  }
+  
+  .grade-b {
+    @apply bg-blue-500 bg-opacity-20 text-blue-400 border border-blue-500;
+  }
+  
+  .grade-c {
+    @apply bg-yellow-500 bg-opacity-20 text-yellow-400 border border-yellow-500;
+  }
+  
+  .grade-d {
+    @apply bg-orange-500 bg-opacity-20 text-orange-400 border border-orange-500;
+  }
+  
+  .grade-f {
+    @apply bg-red-500 bg-opacity-20 text-red-400 border border-red-500;
+  }
+  
+  .metric-card {
+    @apply glass-card p-4 hover:bg-opacity-15 transition-all duration-200;
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+      opacity: 0.8;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    }
+  }
+  
+  .slide-up {
+    animation: slide-up 0.3s ease-out;
+  }
+  
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

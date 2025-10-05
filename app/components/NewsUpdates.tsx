@@ -62,32 +62,48 @@ export function NewsUpdates() {
   };
   
   return (
-    <div className="glass-card p-6">
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="text-xl font-semibold">News Updates</h3>
-        <button className="text-sm text-accent hover:text-yellow-400 transition-colors">
+    <div className="glass-card p-4 sm:p-6 fade-in">
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
+        <h3 className="text-lg sm:text-xl font-semibold">News Updates</h3>
+        <button 
+          className="text-sm text-accent hover:text-yellow-400 active:text-yellow-300 transition-colors touch-manipulation"
+          aria-label="View all news updates"
+        >
           View All
         </button>
       </div>
       
-      <div className="space-y-4">
-        {news.map((item) => (
+      <div className="space-y-3 sm:space-y-4">
+        {news.map((item, index) => (
           <div
             key={item.id}
-            className={`glass-card-hover p-4 border-l-4 ${getImpactColor(item.impact)}`}
+            className={`glass-card-hover p-3 sm:p-4 border-l-4 ${getImpactColor(item.impact)} cursor-pointer active:scale-[0.98] transition-all duration-200 touch-manipulation scale-in`}
+            style={{ animationDelay: `${index * 0.1}s` }}
+            role="article"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                // Handle article click
+              }
+            }}
           >
             <div className="flex items-start justify-between mb-2">
               <div className="flex items-center gap-2">
                 {getImpactIcon(item.impact)}
                 <span className="text-xs font-medium text-accent">{item.token}</span>
               </div>
-              <span className="text-xs text-muted">{item.time}</span>
+              <time className="text-xs text-muted" dateTime={item.time}>
+                {item.time}
+              </time>
             </div>
             
-            <h4 className="font-semibold mb-2">{item.title}</h4>
-            <p className="text-sm text-muted">{item.summary}</p>
+            <h4 className="font-semibold mb-2 text-sm sm:text-base leading-tight">{item.title}</h4>
+            <p className="text-xs sm:text-sm text-muted leading-relaxed">{item.summary}</p>
             
-            <button className="mt-3 text-sm text-accent hover:text-yellow-400 transition-colors">
+            <button 
+              className="mt-3 text-sm text-accent hover:text-yellow-400 active:text-yellow-300 transition-colors touch-manipulation inline-flex items-center gap-1"
+              aria-label={`Read more about ${item.title}`}
+            >
               Read more →
             </button>
           </div>

@@ -22,46 +22,46 @@ export function TokenHoldings() {
   ];
   
   return (
-    <div className="glass-card p-6">
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="text-xl font-semibold">Token Holdings</h3>
-        <button className="text-sm text-accent hover:text-yellow-400 transition-colors">
+    <div className="glass-card p-4 sm:p-6">
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
+        <h3 className="text-lg sm:text-xl font-semibold">Token Holdings</h3>
+        <button className="text-sm text-accent hover:text-yellow-400 active:text-yellow-300 transition-colors touch-manipulation">
           View All
         </button>
       </div>
       
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         {tokens.map((token) => (
           <div
             key={token.symbol}
-            className="glass-card-hover p-4 flex items-center justify-between cursor-pointer"
+            className="glass-card-hover p-3 sm:p-4 flex items-center justify-between cursor-pointer active:scale-[0.98] transition-all duration-200 touch-manipulation"
           >
-            <div className="flex items-center gap-4 flex-1">
-              <div className="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-2xl">
+            <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-surface flex items-center justify-center text-xl sm:text-2xl flex-shrink-0">
                 {token.icon}
               </div>
               
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <h4 className="font-semibold">{token.symbol}</h4>
-                  <span className={`grade-badge grade-${token.grade.toLowerCase()}`}>
+                  <h4 className="font-semibold text-sm sm:text-base">{token.symbol}</h4>
+                  <span className={`grade-badge grade-${token.grade.toLowerCase()} text-xs`}>
                     {token.grade}
                   </span>
                 </div>
-                <p className="text-sm text-muted">{token.name}</p>
+                <p className="text-xs sm:text-sm text-muted truncate">{token.name}</p>
               </div>
             </div>
             
-            <div className="text-right mr-4">
-              <p className="font-semibold">
+            <div className="text-right mr-2 sm:mr-4 flex-shrink-0">
+              <p className="font-semibold text-sm sm:text-base">
                 ${token.value.toLocaleString()}
               </p>
-              <p className={`text-sm ${token.change24h >= 0 ? 'text-success' : 'text-danger'}`}>
+              <p className={`text-xs sm:text-sm ${token.change24h >= 0 ? 'text-success' : 'text-danger'}`}>
                 {token.change24h >= 0 ? '+' : ''}{token.change24h}%
               </p>
             </div>
             
-            <ChevronRight className="w-5 h-5 text-muted" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-muted flex-shrink-0" />
           </div>
         ))}
       </div>
